@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Partials</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-size: 1.6rem;
+        font-family: "Kanit", sans-serif;
+      }
+
+      header {
+        height: 32vh;
+        background: rgb(0, 165, 179);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 165, 179, 1) 19%,
+          rgba(99, 149, 255, 1) 40%,
+          rgba(247, 122, 241, 1) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .back:link,
+      .back:visited {
+        display: inline-block;
+        position: absolute;
+        top: 2%;
+        left: 4%;
+        color: #eee;
+        text-decoration: none;
+        transition: all 0.4s;
+        padding: 1rem;
+        background-color: transparent;
+      }
+
+      .back:hover,
+      .back:active {
+        transform: rotate(360deg);
+        transform: scale(1.3);
+        cursor: pointer;
+        color: #fff;
+        padding: 1rem;
+        border-radius: 1.8rem;
+      }
+
+      h1 {
+        text-align: center;
+        color: #eee;
+        font-size: 4.2rem;
+      }
+
+      .partials-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 9.6rem;
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-content: center;
+        font-family: inherit;
+        row-gap: 2.2rem;
+        column-gap: 1.6rem;
+      }
+
+      @media (max-width: 36em) {
+        html {
+          font-size: 50%;
+        }
+
+        form {
+          grid-template-columns: 1fr;
+          gap: 3.2rem;
+        }
+
+        .resul {
+          background-color: #222;
+          color: #fff;
+          padding: 1.6rem;
+          border-radius: 1.6rem;
+        }
+      }
+
+      label {
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: #222;
+      }
+
+      input {
+        border: none;
+        box-shadow: inset 0 0 0.14rem rgba(110, 108, 108, 0.651);
+        visibility: visible;
+        padding: 1.2rem 2rem;
+        border-radius: 1rem;
+      }
+
+      button {
+        font-family: inherit;
+        background-color: #3b38f1;
+        background-color: #4760ec;
+        border: none;
+        border-radius: 1.2rem;
+        color: #fff;
+        padding: 1.2rem 2rem;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      button:hover {
+        border-radius: 1.6rem;
+        background-color: #000;
+      }
+
+      .resul {
+        text-align: center;
+        font-size: 1.8rem;
+        font-family: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <a class="back" href="index.html">&larr; Volver</a>
+        <h1>Partials page</h1>
+      </div>
+    </header>
+
+    <section class="partials-section">
+      <form action="">
+        <div>
+          <label for="amount">Lot of the trade</label><br />
+          <input id="amount" type="text" />
+        </div>
+        <div>
+          <label for="percentage">How much percentage?</label><br />
+          <input id="percentage" type="text" />
+        </div>
+        <button class="calc">Calcular</button>
+        <div class="resultado"></div>
+      </form>
+    </section>
+
+    <script>
+      const btnCalcular = document.querySelector(".calc");
+      const resultadoDiv = document.querySelector(".resultado");
+      document.querySelector("#amount").value = "";
+      document.querySelector("#percentage").value = "";
+      limpiar();
+      btnCalcular.addEventListener("click", function (e) {
+        limpiar();
+        e.preventDefault();
+        const amount = document.querySelector("#amount").value;
+        const percentage = document.querySelector("#percentage").value;
+
+        const resultado = (amount * percentage) / 100;
+
+        const resul = document.createElement("p");
+        resul.textContent = resultado.toFixed(2);
+        resul.classList = "resul";
+        resultadoDiv.appendChild(resul);
+      });
+
+      function limpiar() {
+        const resulti = document.querySelector(".resul");
+        while (resultadoDiv.firstChild) {
+          resultadoDiv.removeChild(resultadoDiv.firstChild);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="medias.css" />
+    <title>Lots</title>
+  </head>
+  <body>
+    <header class="hero-header">
+      <nav class="nav">
+        <ul class="navigation">
+          <!-- <li><a href="#">Home</a></li> -->
+          <!-- <li><a href="system.html">System</a></li> -->
+          <li class="show-modal">Reentries</li>
+          <li><a href="partials.html">Partials</a></li>
+        </ul>
+      </nav>
+      <div class="center-flex">
+        <!-- <div class="div-vamos"> -->
+        <div class="modal hidden">
+          <button class="close-modal">&times;</button>
+          <div class="container">
+            <h2 class="modal-title">Reentries 🫡</h2>
+            <form class="form-modal" action="">
+              <div>
+                <label for="amount-modal">Amount</label><br />
+                <select name="amount" class="amount-modal" id="amount-modal">
+                  <option selected style="color: #444" value="10000">
+                    Seleccione un valor
+                  </option>
+                  <option value="5000">5,000</option>
+                  <option value="6000">6,000</option>
+                  <option value="10000">10,000</option>
+                  <option value="20000">20,000</option>
+                  <option value="25000">25,000</option>
+                  <option value="40000">40,000</option>
+                  <option value="50000">50,000</option>
+                  <option value="80000">80,000</option>
+                  <option value="100000">100,000</option>
+                  <option value="200000">200,000</option>
+                  <option value="300000">300,000</option>
+                </select>
+              </div>
+              <div>
+                <label for="won">Amount</label><br />
+                <input id="won" placeholder="Cuanto ha ganado?" type="text" />
+              </div>
+              <div>
+                <label for="pips-modal">Pips</label><br />
+                <input
+                  id="pips-modal"
+                  placeholder="Cuantos pips usaras?"
+                  type="text"
+                />
+              </div>
+              <button class="btn-modal">Vamos</button>
+            </form>
+            <div class="solution-modal"></div>
+          </div>
+        </div>
+        <!-- orueba -->
+        <div class="overlay hidden"></div>
+        <!-- </div> -->
+      </div>
+    </header>
+    <section id="calc" class="section-display">
+      <p class="p-sistema">
+        Todo en el mercado es una ilusión, la única manera de materializarlo es
+        siguiendo el sistema
+      </p>
+      <div class="result">
+        <form class="form" action="">
+          <div>
+            <label for="amount">Amount</label><br />
+            <select name="amount" class="amount" id="amount">
+              <option style="color: #444" value="10000">
+                Seleccione un valor
+              </option>
+              <option value="2500">2,500</option>
+              <option value="5000">5,000</option>
+              <option value="12500">12,500</option>
+              <option value="20000">20,000</option>
+              <option value="25000">25,000</option>
+              <option value="40000">40,000</option>
+              <option value="50000">50,000</option>
+              <option value="80000">80,000</option>
+              <option value="100000">100,000</option>
+              <option value="200000">200,000</option>
+              <option value="300000">300,000</option>
+            </select>
+          </div>
+          <div>
+            <label for="pip">Pips Number</label><br />
+            <input id="pip" class="pip" type="text" />
+          </div>
+          <div>
+            <label for="clasi">Clasification</label><br />
+            <!-- <input id="clasi" class="clasi" type="text" /> -->
+            <select name="select-clasi" class="clasi" id="clasi">
+              <option value="A">Seleccione un valor</option>
+              <option value="A">A</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E+">E+</option>
+              <option value="E">E</option>
+              <option value="B">Breaks</option>
+              <option value="B2">Breaks2</option>
+            </select>
+          </div>
+          <button class="btn-action">Calcular</button>
+          <div class="solution"></div>
+        </form>
+      </div>
+      <div id="exRow" class="hidden">
+        <ul class="alternative">
+          <p>Alternative Approach</p>
+        </ul>
+        <ul class="ex-result">
+          <p style="font-weight: 600; font-size: 1.8rem">Expected Result</p>
+        </ul>
+      </div>
+      <button class="btn-clean">Clean</button>
+    </section>
+
+    <section class="section-alternative hidden">
+      <div class="a-zone">
+        <!-- <h4 class="r-calc-title">Risk Calculation</h4> -->
+        <p class="b-alter"></p>
+        <p class="t-alter"></p>
+      </div>
+    </section>
+
+    <section class="section-r-calc hidden">
+      <div class="r-zone">
+        <!-- <h4 class="r-calc-title">Risk Calculation</h4> -->
+        <p class="p-risk"></p>
+        <p class="r-risk"></p>
+      </div>
+    </section>
+
+    <script defer src="lots.js"></script>
+  </body>
+</html>
